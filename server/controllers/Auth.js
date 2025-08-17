@@ -9,7 +9,6 @@ const Profile = require("../models/Profile")
 require("dotenv").config()
 
 // Signup Controller for Registering USers
-
 exports.signup = async (req, res) => {
   try {
     // Destructure fields from the request body
@@ -23,6 +22,7 @@ exports.signup = async (req, res) => {
       contactNumber,
       otp,
     } = req.body
+    
     // Check if All Details are there or not
     if (
       !firstName ||
@@ -196,6 +196,7 @@ exports.sendotp = async (req, res) => {
         message: `User is Already Registered`,
       })
     }
+
 
     var otp = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
